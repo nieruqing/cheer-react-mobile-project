@@ -1,0 +1,415 @@
+@import "./val.scss";
+* { touch-action: pan-y; }
+body,div,span,header,footer,nav,section,aside,article,ul, li, a, p, h1, h2, h3, h4,h5, i, b, textarea, button, input, select  {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    font-family: $font-family;
+    -webkit-tap-highlight-color:transparent;
+    &:focus {
+        outline: none;
+    }
+}
+body{
+    background-color: #fbfbfb;
+    -webkit-overflow-scrolling: touch;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.ellips{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.clear{
+    zoom:1;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.component_container{
+    margin-bottom: .5rem;
+}
+#alertTip{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000;
+    display: none;
+}
+#alertText{
+    width: 14.0rem;
+    position: absolute;
+    left: 50%;
+    top: 9.6rem;
+    margin-left: -7rem;
+    padding: 1.25rem 0.25rem;
+    line-height: 1.5rem;
+    font-size: $fontSize80;
+    text-align: center;
+    background-color: $color1;
+    opacity: 0.8;
+    color: $color8;
+    border-radius: 0.25rem;
+    .alert_bottom{
+        font-size: $fontSize65;
+        line-height: 1.4rem;
+        color: #b3b3b3;
+    }
+}
+//左右间距
+.plr30{
+    padding: 0 .3rem;
+}
+.mlr30{
+    margin-left: .3rem;
+    margin-right: .3rem;
+}
+//间距
+.mt20{
+    margin-top: .2rem;
+}
+//上间距
+.mt108{
+    margin-top: 1.08rem;
+}
+.mt128{
+    margin-top: 1.28rem;
+}
+.mt168{
+    margin-top: 1.68rem;
+}
+//button
+.btn-full-center-blue{
+    display: block;
+    height: 1rem;
+    border-radius: 0.06rem;
+    background-color: #00A0DD;
+    font-family: $font-family;
+    font-size: $fontSize36;
+    color: $color8;
+    width: 100%;
+}
+.btn-full-center-gray{
+    display: block;
+    height: 1rem;
+    border-radius: 0.06rem;
+    background-color: #999;
+    font-family: $font-family;
+    font-size: $fontSize36;
+    color: $color8;
+    width: 100%;
+}
+
+//toast
+.dialog-toast{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 503;
+    .text{
+        display: block;
+        font-family: $font-family;
+        font-size: $fontSize26;
+        color: $color8;
+        padding: .3rem .8rem;
+        border-radius: .48rem;
+        background: rgba(0,0,0,.8);
+        box-shadow: 0 .04rem .08rem .04rem rgba(96, 96, 96, 0.5);
+        margin: 0 1rem;
+    }
+}
+//loading
+.dialog-loading{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 501;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .back-pop{
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.3);
+    }
+    .loading-img{
+        display: block;
+        width:.42rem;
+        height:.42rem;
+        background-size: .84rem .84rem;
+        position: absolute;
+        top:50%;
+        margin-top: -.71rem;
+        left: 50%;
+        margin-left: -.71rem;
+        border-radius: .1rem;
+        padding: .5rem;
+   }
+}
+//弹框（1.调取后台异常 2.res.code!=0）
+.dialog-alert{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 500;
+    top:0;
+    bottom:0;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    background: rgba(0,0,0,.3);
+    min-height: 4rem;
+    .back-pop{
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.3);
+    }
+    .dialog-con{
+        border:1px solid $color3;
+        width:80%;
+        height: auto;
+        background:$color8;
+        border-radius: 8px;
+        .dialog-header{
+            height: auto;
+            text-align: center;
+            font-size: $fontSize28;
+        }
+        .dialog-icon-text-header{
+            height: .88rem;
+            background-color:$color6;
+            color:$color7;
+            font-size:$fontSize28;
+            text-align: center;
+            line-height: .88rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-sizing: border-box;
+        }
+        .dialog-body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:.5rem 12%;
+            font-size:$fontSize28;
+            line-height: .5rem;
+            color:$color2;
+            min-height: 1.5rem;
+        }
+        .icon-text-body{
+            padding:0;
+            max-height: 7.86rem;
+            overflow-y: auto;
+        }
+        .contract-body{
+
+        }
+        .dialog-icon-text-foot{
+            width:100%;
+            background-color:$color8;
+            text-align: center;
+            padding-bottom: .3rem;
+            padding-top:.3rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            font-size:$fontSize15;
+            .btn-icon-text-close{
+                width:47%;
+                display: inline-block;
+                line-height: .54rem;
+                margin:0 auto;
+                background-color:$color4;
+                border-radius: 5px;
+                color:$color8;
+                font-size:$fontSize30;
+            }
+        }
+        .dialog-foot{
+            width:100%;
+            height: 1.08rem;
+            background:$color8;
+            border-top:1px solid #e2e2e2;
+            box-sizing: border-box;
+            font-size:$fontSize32;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            .btn-alert-ok{
+                width:100%;
+                display: inline-block;
+                height:100%;
+                font-size:$fontSize32;
+                background-color: $color8;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                text-align: center;
+                line-height: 100%;
+                color:$color4;
+                cursor: pointer;
+            }
+            .btn-confrim{
+                width:50%;
+                display: inline-block;
+                height:100%;
+                font-size:$fontSize32;
+                background-color: $color8;
+                box-sizing: border-box;
+                text-align: center;
+                float: left;
+                line-height: 1.08rem;
+            }
+            .btn-cancel{
+                color:$color3;
+                border-right:1px solid #e2e2e2;
+                border-bottom-left-radius: 8px;
+            }
+            .btn-ok{
+                color:$color4;
+                border-bottom-right-radius: 8px;
+            }
+        }
+    }
+
+}
+//弹框（2.无网络弹框）
+.dialog-noWifi{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 500;
+    top:0;
+    bottom:0;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    background: $color6;
+    .head-list {
+        height: 1.28rem;
+        background-color: $color1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 200;
+        .head_title{
+            font-size:$fontSize36;
+            width: 5.0rem;
+            text-align: center;
+            line-height: 0.88rem;
+            position: absolute;
+            left: 50%;
+            margin-left: -2.5rem;
+            color: $color8;
+        }
+        .head_goback{
+            line-height: 0.88rem;
+            font-size:$fontSize36;
+            width: 1.10rem;
+            height: 0.88rem;
+            text-align: right;
+            color: $color8;
+            margin-left: 0.30rem;
+            background-size: 0.19rem 0.34rem;
+        }
+    }
+    .head-list {
+        padding-top: .4rem;
+    }
+    .content-body{
+        margin-top: 0;
+    }
+    .content-body.iphoneX{
+        margin-top: -2.6rem;
+    }
+    .content{
+        margin-bottom: .4rem;
+        padding-top: 1.68rem;
+        padding-bottom: .75rem;
+        background: $color8;
+        .icon-no-wifi{
+            margin: 0 auto;
+        }
+        .guide{
+            p{
+                font-family: $font-family;
+                font-size: $fontSize30;
+                color: $color2;
+                margin: 0 .75rem;
+                padding: 0;
+                line-height: .5rem;
+                text-align: left;
+                &:first-child{
+                    margin: 1.18rem .75rem .2rem .75rem;
+                }
+            }
+        }
+    }
+    .btn-full-center-yellow{
+        display: inherit;
+    }
+
+}
+//兼容iphoneX
+.head-list{
+    padding-top: .4rem;
+}
+.content-body{
+    position: relative;
+    margin-top: 1.52rem;
+    .tab-component{
+        .tab-title-items {
+            top: 1.28rem;
+        }
+        .tab-content-items{
+            margin-top: 2.76rem;
+        }
+    }
+}
+.iphoneX{
+    .head-list{
+        padding-top: .88rem;
+    }
+    .content-body{
+        position: relative;
+        margin-top: 1.96rem;
+        .tab-component {
+            .tab-title-items {
+                top: 1.72rem;
+            }
+            .tab-content-items {
+                margin-top: 3.2rem;
+            }
+        }
+    }
+}

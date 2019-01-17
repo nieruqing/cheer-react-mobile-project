@@ -1,0 +1,30 @@
+@import "../../style/val.scss";
+.no-wifi{
+  .content{
+    margin-top: 1.08rem;
+    margin-bottom: .4rem;
+    padding-top: 1.68rem;
+    padding-bottom: .75rem;
+    background: $color8;
+    .icon-no-wifi{
+      margin: 0 auto;
+    }
+    .guide{
+      p{
+        font-family: $font-family;
+        font-size: $fontSize30;
+        color: $color2;
+        margin: 0 .75rem;
+        padding: 0;
+        line-height: .5rem;
+        text-align: left;
+        &:first-child{
+          margin: 1.18rem .75rem .2rem .75rem;
+        }
+      }
+    }
+  }
+  .btn-full-center-yellow{
+    display: inherit;
+  }
+}

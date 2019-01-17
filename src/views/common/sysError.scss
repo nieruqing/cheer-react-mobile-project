@@ -1,0 +1,24 @@
+@import "../../style/val.scss";
+.error-sys{
+  .content{
+    margin-top: 1.08rem;
+    margin-bottom: .4rem;
+    padding-top: 1.32rem;
+    padding-bottom: 1.04rem;
+    background: $color8;
+    .icon-error{
+      margin: 0 auto;
+    }
+    p{
+      margin: 1.4rem .75rem 0 .75rem;
+      padding: 0;
+      font-family: $font-family;
+      font-size: $fontSize30;
+      color: $color2;
+      text-align: left;
+    }
+  }
+  .btn-full-center-yellow{
+    display: inherit;
+  }
+}
